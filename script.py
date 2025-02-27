@@ -8,8 +8,10 @@ from selenium.webdriver.support import wait
 import os
 
 
-def scrape_current_page():  #传入参数,包括url,页数,表头,浏览器路径
-    for i in range(0, 18):
+def scrape_current_page():
+    # Define the number of pages to scrape
+    n = int(os.getenv("NUM"), 20)
+    for i in range(0, n):
         # 启动谷歌浏览器
         driver = webdriver.Chrome(executable_path=os.getenv("CHROME_DRIVER_PATH"))
 
@@ -30,7 +32,7 @@ def scrape_current_page():  #传入参数,包括url,页数,表头,浏览器路�
             # 输入账号和密码
 
             username_field.send_keys(os.getenv('USERNAME'))  # 替换为实际的账号
-            password_field.send_keys( os.getenv('PASSWORD'))  # 替换为实际的密码
+            password_field.send_keys(os.getenv('PASSWORD'))  # 替换为实际的密码
 
             # 点击登录按钮
             login_button = driver.find_element('xpath', '//*[@id="fm1Input"]/div[5]/div/input')  # 替换为实际的ID或其他定位符
