@@ -3,15 +3,18 @@ import pandas as pd
 from lxml import etree
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import wait
 import os
-
+#读取配置文件
+from dotenv import load_dotenv
+load_dotenv()
 
 def scrape_current_page():
     # Define the number of pages to scrape
-    n = int(os.getenv("NUM"), 20)
-    for i in range(0, n):
+
+    for i in range(0, int(os.getenv('NUM'))):
         # 启动谷歌浏览器
         driver = webdriver.Chrome(executable_path=os.getenv("CHROME_DRIVER_PATH"))
 
@@ -26,13 +29,10 @@ def scrape_current_page():
 
         try:
             # 等待页面加载并找到账号和密码输入框
-            username_field = driver.find_element('xpath', '//*[@id="username"]')  # 替换为实际的ID或其他定位符
-            password_field = driver.find_element('xpath', '//*[@id="password"]')  # 替换为实际的ID或其他定位符
-
-            # 输入账号和密码
-
-            username_field.send_keys(os.getenv('USERNAME'))  # 替换为实际的账号
-            password_field.send_keys(os.getenv('PASSWORD'))  # 替换为实际的密码
+            username_field = driver.find_element(By.CSS_SELECTOR, '#username')  # 替换为实际的ID或其他定位符
+            password_field = driver.find_element(By.CSS_SELECTOR, '#password')  # 替换为实际的ID或其他定位符
+            username_field.send_keys(os.getenv('LOGIN_USERNAME'))  # 替换为实际的账号
+            password_field.send_keys(os.getenv('LOGIN_PASSWORD'))  # 替换为实际的密码
 
             # 点击登录按钮
             login_button = driver.find_element('xpath', '//*[@id="fm1Input"]/div[5]/div/input')  # 替换为实际的ID或其他定位符
