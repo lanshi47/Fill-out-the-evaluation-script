@@ -9,8 +9,8 @@ import script # Import the script module
 if __name__ == "__main__":
     try:
         # 检查配置文件
-        if not os.path.exists('config.ini'):
-            raise FileNotFoundError("缺少配置文件 config.ini")
+        if not os.path.exists('.env'):
+            raise FileNotFoundError("缺少配置文件 .env")
         script.scrape_current_page()
         logging.info("脚本执行完毕")
 

@@ -7,6 +7,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import wait
 import os
 
+
 def scrape_current_page():  #传入参数,包括url,页数,表头,浏览器路径
     for i in range(0, 18):
         # 启动谷歌浏览器
@@ -27,10 +28,9 @@ def scrape_current_page():  #传入参数,包括url,页数,表头,浏览器路�
             password_field = driver.find_element('xpath', '//*[@id="password"]')  # 替换为实际的ID或其他定位符
 
             # 输入账号和密码
-            #李亚宁:21252844,li06100621.
 
-            username_field.send_keys('21252845')  # 替换为实际的账号
-            password_field.send_keys('@Yzs20030317')  # 替换为实际的密码
+            username_field.send_keys(os.getenv('USERNAME'))  # 替换为实际的账号
+            password_field.send_keys( os.getenv('PASSWORD'))  # 替换为实际的密码
 
             # 点击登录按钮
             login_button = driver.find_element('xpath', '//*[@id="fm1Input"]/div[5]/div/input')  # 替换为实际的ID或其他定位符
