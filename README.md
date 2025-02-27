@@ -10,7 +10,7 @@
 - 自动选择"优秀"选项
 - 自动提交评教表单
 - 验证评分是否为100分
-- 支持多次评教（默认18次）
+- 支持多次评教（默认20次）
 
 ## 环境要求
 
@@ -40,9 +40,10 @@
 2. 在`.env`文件中添加以下配置：
    ```
    CHROME_DRIVER_PATH=<您的ChromeDriver路径>
-   URL=<评教系统的URL>
+   URL=<评教系统的URL> https://zlpgxt.ntit.edu.cn/static/vue/vue/#/survery?isShowMerge=1&isLimitTeaScore=1&k=1为默认值
    USERNAME=<您的用户名>
    PASSWORD=<您的密码>
+   NUM=<评教的次数> 20为默认值
    ```
 
 ## 使用方法
@@ -50,9 +51,9 @@
 1. 确保所有配置都已正确设置。
 2. 运行脚本：
    ```
-   python script.py
+   python app.py
    ```
-3. 脚本将自动执行18次评教过程。
+3. 脚本将自动执行{NUM}次评教过程。
 
 ## 注意事项
 
