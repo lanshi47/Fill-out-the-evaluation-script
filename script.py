@@ -41,7 +41,7 @@ def scrape_current_page():
             element_xpath = '//*[@id="memo-list"]/div[2]/div[3]/div[2]/div[3]/div[2]/div/div[2]'
             element = driver.find_element('xpath', element_xpath)
 
-            # Perform the click action
+
             element.click()
             excellent_options = driver.find_elements('xpath', '//*[@id="demo"]/div[2]/label[1]/span[1]')
             print(excellent_options)
@@ -60,8 +60,7 @@ def scrape_current_page():
                 confirm_button_xpath = '/html/body/div[5]/div/div/div/div[3]/a[2]'
                 confirm_button = driver.find_element('xpath', confirm_button_xpath)
                 confirm_button.click()
-            # Optionally, you can perform other actions or extract data here
+
 
         finally:
-            # Close the WebDriver
             driver.quit()

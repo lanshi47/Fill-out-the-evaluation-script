@@ -1,9 +1,7 @@
 import logging
 import os
 
-import script # Import the script module
-
-# Call the scrape_current_page function from the script module
+import script
 
 # ---------------------- 主程序 ----------------------
 if __name__ == "__main__":
@@ -16,4 +14,3 @@ if __name__ == "__main__":
 
     except Exception as e:
         logging.critical("主程序异常终止", exc_info=True)
-
